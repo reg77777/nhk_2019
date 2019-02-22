@@ -1,0 +1,8 @@
+prefix=/home/junpei/rejireji_ws/install
+
+Name: smach_viewer
+Description: Description of smach_viewer
+Version: 2.0.0
+Cflags: 
+Libs: -L/home/junpei/rejireji_ws/install/lib 
+Requires: smach_ros xdot smach_msgs

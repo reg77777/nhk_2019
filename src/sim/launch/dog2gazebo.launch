@@ -1,0 +1,10 @@
+<launch>
+
+   <arg name="xacro_model" default="$(find sim)/xacro/dog.xacro"/>
+   <param name="dog_model" command="$(find xacro)/xacro.py $(arg xacro_model)"/>
+
+   <!--node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param dog_model -urdf -model ROBOT"/--> <include file="$(find urdf_tutorial)/launch/display.launch">
+      <arg name="model" value="$(param dog_model)"/>
+   </include>
+
+</launch>

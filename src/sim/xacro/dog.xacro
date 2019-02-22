@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<robot name="dog" xmlns:xacro="http://ros.org/wiki/xacro">
+
+<xacro:property name="width"  value="0.05"/>
+<xacro:property name="height" value="0.05"/>
+<xacro:property name="size"   value="0.5"/>
+
+   <material name="red">
+      <color rgba="1.0 0.0 0.0 2.0"/>
+   </material>
+
+   <link name="base_link"/>
+
+   <link name="body">
+      <visual>
+         <geometry>
+            <box size="${1.5*size} ${5*width} ${height}"/>
+         </geometry>
+         <origin xyz="0 0 ${size/2}" rpy="0 0 0"/>
+      </visual>
+   </link>
+   <joint name="body" type="fixed">
+      <parent link="base_link"/>
+      <child  link="body"/>
+   </joint>
+
+   <link name="leg_lf">
+      <visual>
+         <geometry>
+            <box size="${size} ${width} ${height}"/>
+         </geometry>
+         <origin  xyz="${1.5*size*1/3} ${5*width/2} ${size/2}" rpy="0 ${radians(90)} 0"/>
+      </visual>
+   </link>
+
+   <link name="leg_rf">
+      <visual>
+         <geometry>
+            <box size="${size} ${width} ${height}"/>
+         </geometry>
+         <origin  xyz="${1.5*size*1/3} ${-5*width/2} ${size/2}" rpy="0 ${radians(90)} 0"/>
+      </visual>
+   </link>
+
+   <joint name="lf" type="revolute">
+      <parent link="body"/> 
+      <child  link="leg_lf"/>
+      <origin xyz="0 0 0"/>
+      <limit  lower="-1.5" upper="1.5" effort="0" velocity="0"/>
+   </joint>
+
+   <joint name="rf" type="revolute">
+      <parent link="body"/> 
+      <child  link="leg_rf"/>
+      <origin xyz="0 0 0"/>
+      <limit  lower="-1.5" upper="1.5" effort="0" velocity="0"/>
+   </joint>
+
+</robot>

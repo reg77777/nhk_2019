@@ -1,0 +1,2 @@
+camera:executive_smach/executive_smach:executive_smach/smach:executive_smach/smach_msgs:executive_smach/smach_ros:executive_smach_visualization/executive_smach_visualization:executive_smach_visualization/rqt_smach:executive_smach_visualization/smach_viewer:realsense2_camera:robot:sim:state_machine:xdot
+-DCATKIN_DEVEL_PREFIX=/home/junpei/rejireji_ws/devel -DCMAKE_INSTALL_PREFIX=/home/junpei/rejireji_ws/install -G Unix Makefiles

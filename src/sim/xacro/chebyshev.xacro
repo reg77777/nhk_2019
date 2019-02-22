@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<robot name="chebychev" xmlns:xacro="http://ros.ort/wiki/xacro">
+
+<xacro:property name="width"  value="0.05"/>
+<xacro:property name="height" value="0.05"/>
+<xacro:property name="size"   value="0.5"/>
+
+   <material name="red">
+      <color rgba="1.0 0.0 0.0 2.0"/>
+   </material>
+
+   <link name="base_link"/>
+
+   <link name="link1">
+      <visual>
+         <geometry>
+            <box size = "${size} ${width} ${height}"/>
+         </geometry>
+         <origin xyz="0 0 ${size/2}" rpy="0 ${radians(90)} 0"/>
+      </visual>
+   </link>
+
+   <link name="link2">
+      <visual>
+         <geometry>
+            <box size = "${2.5*size} ${width} ${height} "/>
+         </geometry>
+         <origin xyz="0 0 ${2.5*size/2}" rpy="0 ${radians(90)} 0"/>
+      </visual>
+   </link>
+
+   <link name="link3">
+      <visual>
+         <geometry>
+            <box size = "${5*size} ${width} ${height} "/>
+         </geometry>
+         <origin xyz="${2*size} 0 ${1.5*size}" rpy="0 ${radians(-36.86989765)} 0"/>
+      </visual>
+   </link>
+
+   <link name="link4">
+      <visual>
+         <geometry>
+            <box size = "${2*size} ${width} ${height} "/>
+         </geometry>
+         <origin xyz="${2*size/2} 0 ${height/2}" rpy="0 0 0"/>
+         <material name="red"/>
+      </visual>
+   </link>
+   <joint name="joint4" type="fixed">
+      <parent link="base_link"/>
+      <child  link="link4"/>
+   </joint>
+
+   <joint name="link1_to_link3" type="revolute">
+      <parent link="link1"/>
+      <child  link="link3"/>
+      <origin xyz="0 0 ${1*size}"/>
+      <axis   xyz="0 1 0"/>
+      <limit  lower="-1.5" upper="1.5" effort="0" velocity="0"/>
+   </joint>
+
+   <joint name="link3_to_link2" type="revolute">
+      <parent  link="link3"/>
+      <child   link="link2"/>
+      <origin  xyz="0 0 ${2.5*size}"/>
+      <axis    xyz="0 1 0"/>
+      <limit  lower="-1.5" upper="1.5" effort="0" velocity="0"/>
+   </joint>
+
+   <joint name="link4_to_link1" type="revolute">
+      <parent link="link4"/>
+      <child  link="link1"/>
+      <origin xyz="0 0 ${height/2}"/>
+      <axis   xyz="0 1 0"/>
+      <limit  lower="-1.5" upper="1.5" effort="0" velocity="0"/>
+   </joint>
+
+   <joint name="link4_to_link2" type="revolute">
+      <parent link="link4"/>
+      <child  link="link2"/>
+      <origin xyz="${2*size} 0 ${height/2}"/>
+      <axis   xyz="0 1 0"/>
+      <limit  lower="-1.5" upper="1.5" effort="0" velocity="0"/>
+   </joint>
+
+</robot>

@@ -1,0 +1,8 @@
+<launch>
+
+  <!-- Arcuion1 node -->
+    <node pkg="rosserial_python" type="serial_node.py" name="arduino1">
+      <param name="port" value="/dev/ttyACM0" type="str"/>
+    </node>
+
+</launch>

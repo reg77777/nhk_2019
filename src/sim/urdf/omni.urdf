@@ -1,0 +1,42 @@
+<robot name="omni">
+
+    <link name="world"/>
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://sim/mesh/omni.stl"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <material name="red">
+                <color rgba="1.0 0.0 0.0 2.0"/>
+            </material>
+        </visual>
+        <inertial>
+            <origin xyz ="0 0 0" rpy="0 0 0"/>
+            <mass value="1"/>
+            <inertia 
+                ixx="1.0" ixy="0.0" ixz="0.0"
+                iyy="1.0" iyz="0.0"
+                izz="1.0"/>
+        </inertial>
+        <gravity>1</gravity>
+        <colision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://sim/mesh/omni.stl"/>
+            </geometry>    
+        </colision>
+    </link>
+
+    <gazebo reference="base_link">
+        <material>Gazebo/Red</material> 
+    </gazebo>
+
+    <joint name="fixed" type="fixed">
+        <parent link="world"/>
+        <child link="base_link"/>
+    </joint>
+
+    <gazebo referenc="fixed">
+
+</robot>

@@ -1,0 +1,8 @@
+prefix=/home/junpei/rejireji_ws/devel
+
+Name: robot
+Description: Description of robot
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/junpei/rejireji_ws/devel/lib 
+Requires: 
