@@ -4,6 +4,7 @@
 
 #include <ros/ros.h>
 #include <std_msgs/Float32.h>
+#include <std_msgs/Int16.h>
 #include <std_msgs/Bool.h>
 
 #define     RIGHT_FORE     0
@@ -31,16 +32,16 @@ class Dog {
         void motorcon(int which,float data);
 
         ros::Subscriber enc_sub[LEG_QTY];
-        void enc_callback0(const std_msgs::Float32::ConstPtr& sub_msg);
-        void enc_callback1(const std_msgs::Float32::ConstPtr& sub_msg);
-        void enc_callback2(const std_msgs::Float32::ConstPtr& sub_msg);
-        void enc_callback3(const std_msgs::Float32::ConstPtr& sub_msg);
+        void enc_callback0(const std_msgs::Int16::ConstPtr& sub_msg);
+        void enc_callback1(const std_msgs::Int16::ConstPtr& sub_msg);
+        void enc_callback2(const std_msgs::Int16::ConstPtr& sub_msg);
+        void enc_callback3(const std_msgs::Int16::ConstPtr& sub_msg);
 
         ros::Publisher  motor_pub[LEG_QTY];
         ros::Publisher  air_pub[LEG_QTY];
 
         float enc_dt[LEG_QTY];
-        float enc[LEG_QTY];
+        int enc[LEG_QTY];
         float wheelspeed[LEG_QTY];
         
         float kp;
@@ -70,10 +71,10 @@ Dog::Dog() {
    air_pub[RIGHT_HIND]= nh.advertise<std_msgs::Bool>("air2",1);
    air_pub[LEFT_HIND] = nh.advertise<std_msgs::Bool>("air3",1);
 
-   enc_sub[RIGHT_FORE]= nh.subscribe<std_msgs::Float32>("enc0",10,&Dog::enc_callback0,this);
-   enc_sub[LEFT_FORE] = nh.subscribe<std_msgs::Float32>("enc1",10,&Dog::enc_callback1,this);
-   enc_sub[RIGHT_HIND]= nh.subscribe<std_msgs::Float32>("enc2",10,&Dog::enc_callback2,this);
-   enc_sub[LEFT_HIND] = nh.subscribe<std_msgs::Float32>("enc3",10,&Dog::enc_callback3,this);
+   enc_sub[RIGHT_FORE]= nh.subscribe<std_msgs::Int16>("enc0",10,&Dog::enc_callback0,this);
+   enc_sub[LEFT_FORE] = nh.subscribe<std_msgs::Int16>("enc1",10,&Dog::enc_callback1,this);
+   enc_sub[RIGHT_HIND]= nh.subscribe<std_msgs::Int16>("enc2",10,&Dog::enc_callback2,this);
+   enc_sub[LEFT_HIND] = nh.subscribe<std_msgs::Int16>("enc3",10,&Dog::enc_callback3,this);
 
 }
 
@@ -99,26 +100,27 @@ void Dog::motorcon_callback3(const std_msgs::Float32::ConstPtr& sub_msg){
 
 void Dog::motorcon(int which,float data){
    std_msgs::Float32 msg;
-   msg.data = kp*(data-wheelspeed[which]);
+   msg.data = kp*(data-enc[which]);
    motor_pub[which].publish(msg);
+   ROS_INFO("motor%d %f",which,msg.data);
 }
 
-void Dog::enc_callback0(const std_msgs::Float32::ConstPtr& sub_msg){
+void Dog::enc_callback0(const std_msgs::Int16::ConstPtr& sub_msg){
    wheelspeed[RIGHT_FORE] = (sub_msg->data - enc[RIGHT_FORE])/enc_dt[RIGHT_FORE];
    enc[RIGHT_FORE] = sub_msg->data;
 }
 
-void Dog::enc_callback1(const std_msgs::Float32::ConstPtr& sub_msg){
+void Dog::enc_callback1(const std_msgs::Int16::ConstPtr& sub_msg){
    wheelspeed[LEFT_FORE] = (sub_msg->data - enc[RIGHT_FORE])/enc_dt[LEFT_FORE];
    enc[LEFT_FORE] = sub_msg->data;
 }
 
-void Dog::enc_callback2(const std_msgs::Float32::ConstPtr& sub_msg){
+void Dog::enc_callback2(const std_msgs::Int16::ConstPtr& sub_msg){
    wheelspeed[RIGHT_HIND] = (sub_msg->data - enc[LEFT_HIND])/enc_dt[RIGHT_HIND];
    enc[RIGHT_HIND] = sub_msg->data;
 }
 
-void Dog::enc_callback3(const std_msgs::Float32::ConstPtr& sub_msg){
+void Dog::enc_callback3(const std_msgs::Int16::ConstPtr& sub_msg){
    wheelspeed[LEFT_HIND] = (sub_msg->data - enc[LEFT_FORE])/enc_dt[LEFT_HIND];
    enc[LEFT_FORE] = sub_msg->data;
 }

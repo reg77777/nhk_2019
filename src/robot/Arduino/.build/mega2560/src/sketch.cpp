@@ -18,14 +18,13 @@ void loop();
 //#include <std_msgs/Int16.h>
 
 void setup(){
+  nh.initNode();
   setSubscriber();
   publisherSetup();
-  nh.initNode();
 }
 
 void loop(){
   publish();
   nh.spinOnce();
-
-  delay(5);
+  delay(1);
 }

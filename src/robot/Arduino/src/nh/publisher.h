@@ -199,24 +199,24 @@ namespace Enc3{
 
 void valUpdate(){
   Enc0::update();
-  Enc1::update();
-  Enc2::update();
-  Enc3::update();
+  //Enc1::update();
+  //Enc2::update();
+  //Enc3::update();
 }
 
 void publisherSetup(){
   Enc0::setup();
-  Enc1::setup();
-  Enc2::setup();
-  Enc3::setup();
+  //Enc1::setup();
+  //Enc2::setup();
+  //Enc3::setup();
 }
 
 void publish(){
   valUpdate();
   Enc0::publish();
-  Enc1::publish();
-  Enc2::publish();
-  Enc3::publish();
+  //Enc1::publish();
+  //Enc2::publish();
+  //Enc3::publish();
 }
 
 #endif

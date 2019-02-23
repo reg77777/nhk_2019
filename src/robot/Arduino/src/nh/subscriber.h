@@ -25,8 +25,7 @@ namespace Motor0{
     printf("%d",msg.data);
     nh.loginfo("motor0");
   }
-  const char * topic_name= "moto_0";
-  ros::Subscriber<std_msgs::Float32>sub(topic_name,&callback);
+  ros::Subscriber<std_msgs::Float32>sub("motor0",&callback);
 
 }
 
