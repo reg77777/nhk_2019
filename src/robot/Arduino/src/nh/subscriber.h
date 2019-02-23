@@ -16,67 +16,66 @@
 #define MOTOR_UL_CW  9
 #define MOTOR_UL_CCW 10
 
-
-namespace MotorUpRight{
+namespace Motor0{
   struct MotorPins pins = {MOTOR_UR_CW,MOTOR_UR_CCW};
   Motor motor(pins);
 
   void callback(const std_msgs::Float32 &msg){
     motor.run(msg.data);
     printf("%d",msg.data);
-    nh.loginfo("up_right");
+    nh.loginfo("motor0");
   }
-  ros::Subscriber<std_msgs::Float32>sub("motor_ur_sub",&callback);
+  const char * topic_name= "moto_0";
+  ros::Subscriber<std_msgs::Float32>sub(topic_name,&callback);
 
 }
 
-namespace MotorUpLeft{
+namespace Motor1{
   struct MotorPins pins = {MOTOR_DR_CW,MOTOR_DR_CCW};
   Motor motor(pins);
 
   void callback(const std_msgs::Float32 &msg){
     motor.run(msg.data);
     printf("%d",msg.data);
-    nh.loginfo("up_left");
+    nh.loginfo("motor1");
   }
-  ros::Subscriber<std_msgs::Float32>sub("motor_ul_sub",&callback);
+  ros::Subscriber<std_msgs::Float32>sub("motor1",&callback);
 }
 
-namespace MotorDownLeft{
+namespace Motor2{
   struct MotorPins pins = {MOTOR_DL_CW,MOTOR_DL_CCW};
   Motor motor(pins);
 
   void callback(const std_msgs::Float32 &msg){
     motor.run(msg.data);
     printf("%d",msg.data);
-    nh.loginfo("down_left");
+    nh.loginfo("motor2");
   }
-  ros::Subscriber<std_msgs::Float32>sub("motor_dl_sub",&callback);
+  ros::Subscriber<std_msgs::Float32>sub("motor2",&callback);
 }
 
-namespace MotorDownRight{
+namespace Motor3{
   struct MotorPins pins = {MOTOR_UL_CW,MOTOR_UL_CCW};
   Motor motor(pins);
 
   void callback(const std_msgs::Float32 &msg){
     motor.run(msg.data);
-    nh.loginfo("down_right");
+    nh.loginfo("motor3");
   }
-  ros::Subscriber<std_msgs::Float32>sub("motor_dr_sub",&callback);
-}
-
+  ros::Subscriber<std_msgs::Float32>sub("motor3",&callback);
+} 
 namespace All{
   void callback(const std_msgs::Float32 &msg){
     nh.loginfo("All_stop");
   }
-  ros::Subscriber<std_msgs::Float32>sub("motor_dr_sub",&callback);
+  ros::Subscriber<std_msgs::Float32>sub("all",&callback);
 }
 
 void setSubscriber(){
-  nh.subscribe(MotorUpRight::sub);
-  nh.subscribe(MotorUpLeft::sub);
-  nh.subscribe(MotorDownLeft::sub);
-  nh.subscribe(MotorDownRight::sub);
+  nh.subscribe(Motor0::sub);
+  nh.subscribe(Motor1::sub);
+  nh.subscribe(Motor2::sub);
+  nh.subscribe(Motor3::sub);
 }
 
 #endif

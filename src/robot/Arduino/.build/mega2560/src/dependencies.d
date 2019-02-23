@@ -39,5 +39,5 @@
  lib/ros_lib/ArduinoHardware.h \
  /usr/share/arduino/hardware/arduino/cores/arduino/HardwareSerial.h \
  lib/ros_lib/std_msgs/Float32.h src/nh/nh.h src/nh/publisher.h \
- src/nh/subscriber.h src/nh/nh.h src/nh/../motor/motor.h \
- lib/ros_lib/std_msgs/Int16.h
+ lib/ros_lib/std_msgs/Int16.h src/nh/subscriber.h src/nh/nh.h \
+ src/nh/../motor/motor.h

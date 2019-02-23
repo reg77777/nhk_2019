@@ -19,10 +19,13 @@ void loop();
 
 void setup(){
   setSubscriber();
+  publisherSetup();
   nh.initNode();
 }
 
 void loop(){
   publish();
   nh.spinOnce();
+
+  delay(5);
 }
