@@ -1,0 +1,33 @@
+<launch>
+  
+  <include file="$(find robot)/launch/robot.launch"/>
+
+  <group ns="motor0">
+    <param name="enc_node" type="str" value="enc"/>
+    <param name="motor_node" type="str" value="motor"/>
+    <param name="motorcon_node" type="str" value="motorcon"/>
+    <node pkg="state_machine" type="motor.py" name="motor_move"/>
+  </group>
+
+  <group ns="motor1">
+    <param name="enc_node" type="str" value="enc"/>
+    <param name="motor_node" type="str" value="motor"/>
+    <param name="motorcon_node" type="str" value="motorcon"/>
+    <node pkg="state_machine" type="motor.py" name="motor_move"/>
+  </group>
+
+  <group ns="motor2">
+    <param name="enc_node" type="str" value="enc"/>
+    <param name="motor_node" type="str" value="motor"/>
+    <param name="motorcon_node" type="str" value="motorcon"/>
+    <node pkg="state_machine" type="motor.py" name="motor_move"/>
+  </group>
+
+  <group ns="motor3">
+    <param name="enc_node" type="str" value="enc"/>
+    <param name="motor_node" type="str" value="motor"/>
+    <param name="motorcon_node" type="str" value="motorcon"/>
+    <node pkg="state_machine" type="motor.py" name="motor_move"/>
+  </group>
+
+</launch>

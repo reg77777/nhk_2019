@@ -1,0 +1,18 @@
+Metadata-Version: 1.0
+Name: rqt_smach
+Version: 0.0.0
+Summary: This is a smple rqt-based GUI for smach. It shows the state of
+    hierarchical SMACH state machines. It can visualize the possible
+    transitions between states, as well as the currently active s...
+Home-page: UNKNOWN
+Author: Jonathan Bohren
+Author-email: jbo@jhu.edu
+License: BSD
+Description: This is a smple rqt-based GUI for smach. It shows the state of
+            hierarchical SMACH state machines. It can visualize the possible
+            transitions between states, as well as the currently active state
+            and the values of user data that is passed around between states.
+            The smach viewer uses the SMACH debugging interface based on
+            the <a href="http://www.ros.org/wiki/smach_msgs">smach
+            messages</a> to gather information from running state machines.
+Platform: UNKNOWN

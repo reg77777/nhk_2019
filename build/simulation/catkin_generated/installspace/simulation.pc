@@ -1,8 +1,0 @@
-prefix=/home/junpei/rejireji_ws/install
-
-Name: simulation
-Description: Description of simulation
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/junpei/rejireji_ws/install/lib 
-Requires: 

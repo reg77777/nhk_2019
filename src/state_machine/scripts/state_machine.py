@@ -8,7 +8,7 @@ class Foo(smach.State):
     def __init__(self):
         smach.State.__init__(self,outcomes=['outcome1','outcome2'])
 
-    def execute(self,userdate):
+    def execute(self,data):
         rospy.loginfo('state is init')
         rospy.sleep(1)
         return 'outcome1'
@@ -17,7 +17,7 @@ class Bar(smach.State):
     def __init__(self):
         smach.State.__init__(self,outcomes=['outcome1'])
 
-    def execute(self,userdate):
+    def execute(self,data):
         rospy.loginfo('state is start')
         rospy.sleep(1)
         return 'outcome1'
@@ -35,7 +35,7 @@ class walk(smach.State):
         smach.State.__init__(self,outcomes=[''])
 
 class main():
-    rospy.init_node('smach_example_state_machine')
+    rospy.init_node('state_machine')
 
     sm=smach.StateMachine(outcomes=['outcome4'])
 

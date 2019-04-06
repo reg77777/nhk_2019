@@ -11,5 +11,5 @@ int main(int argc,char**argv){
   system(command);
 
   ROS_INFO("CONNECTING");
-  while(ros::ok());
+  return 0;
 }

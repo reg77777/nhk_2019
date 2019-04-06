@@ -99,6 +99,7 @@ omni_EXTERNAL_OBJECTS =
 /home/junpei/rejireji_ws/devel/lib/robot/omni: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
 /home/junpei/rejireji_ws/devel/lib/robot/omni: /usr/lib/x86_64-linux-gnu/libboost_regex.so
 /home/junpei/rejireji_ws/devel/lib/robot/omni: /opt/ros/kinetic/lib/libxmlrpcpp.so
+/home/junpei/rejireji_ws/devel/lib/robot/omni: /home/junpei/rejireji_ws/devel/lib/libdynamic_reconfigure_config_init_mutex.so
 /home/junpei/rejireji_ws/devel/lib/robot/omni: /opt/ros/kinetic/lib/libroscpp_serialization.so
 /home/junpei/rejireji_ws/devel/lib/robot/omni: /opt/ros/kinetic/lib/librostime.so
 /home/junpei/rejireji_ws/devel/lib/robot/omni: /opt/ros/kinetic/lib/libcpp_common.so

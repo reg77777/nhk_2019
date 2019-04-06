@@ -12,6 +12,11 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   geometry_msgs
+  dynamic_reconfigure
+)
+
+generate_dynamic_reconfigure_options(
+  cfg/sample1.cfg
 )
 
 ## System dependencies are found with CMake's conventions
@@ -199,10 +204,12 @@ include_directories(
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
-include_directories(include ${catkin_INCLUDE_DIRS})
-
 add_executable(omni src/omni.cpp)
 target_link_libraries(omni ${catkin_LIBRARIES})
 
 add_executable(dog src/dog.cpp)
 target_link_libraries(dog ${catkin_LIBRARIES})
+
+add_executable(adjust src/adjust.cpp)
+add_dependencies(adjust robot_gencfg)
+target_link_libraries(adjust ${catkin_LIBRARIES})

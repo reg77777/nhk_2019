@@ -68,38 +68,6 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: install/local
-
-.PHONY : install/local/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -121,6 +89,49 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+
+.PHONY : install/strip/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: install/local
+
+.PHONY : install/local/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -154,6 +165,228 @@ depend:
 	cd /home/junpei/rejireji_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test_rostest_test_rosserial_python_socket.test.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test_rostest_test_rosserial_python_socket.test.dir/rule
+.PHONY : rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test_rostest_test_rosserial_python_socket.test.dir/rule
+
+# Convenience name for target.
+run_tests_rosserial_test_rostest_test_rosserial_python_socket.test: rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test_rostest_test_rosserial_python_socket.test.dir/rule
+
+.PHONY : run_tests_rosserial_test_rostest_test_rosserial_python_socket.test
+
+# fast build rule for target.
+run_tests_rosserial_test_rostest_test_rosserial_python_socket.test/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test_rostest_test_rosserial_python_socket.test.dir/build.make rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test_rostest_test_rosserial_python_socket.test.dir/build
+.PHONY : run_tests_rosserial_test_rostest_test_rosserial_python_socket.test/fast
+
+# Convenience name for target.
+rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test_rostest_test_rosserial_server_serial.test.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test_rostest_test_rosserial_server_serial.test.dir/rule
+.PHONY : rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test_rostest_test_rosserial_server_serial.test.dir/rule
+
+# Convenience name for target.
+_run_tests_rosserial_test_rostest_test_rosserial_server_serial.test: rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test_rostest_test_rosserial_server_serial.test.dir/rule
+
+.PHONY : _run_tests_rosserial_test_rostest_test_rosserial_server_serial.test
+
+# fast build rule for target.
+_run_tests_rosserial_test_rostest_test_rosserial_server_serial.test/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test_rostest_test_rosserial_server_serial.test.dir/build.make rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test_rostest_test_rosserial_server_serial.test.dir/build
+.PHONY : _run_tests_rosserial_test_rostest_test_rosserial_server_serial.test/fast
+
+# Convenience name for target.
+rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test.dir/rule
+.PHONY : rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test.dir/rule
+
+# Convenience name for target.
+run_tests_rosserial_test: rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test.dir/rule
+
+.PHONY : run_tests_rosserial_test
+
+# fast build rule for target.
+run_tests_rosserial_test/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test.dir/build.make rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test.dir/build
+.PHONY : run_tests_rosserial_test/fast
+
+# Convenience name for target.
+rosserial/rosserial_test/CMakeFiles/rosserial_test_rosserial_lib.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rosserial/rosserial_test/CMakeFiles/rosserial_test_rosserial_lib.dir/rule
+.PHONY : rosserial/rosserial_test/CMakeFiles/rosserial_test_rosserial_lib.dir/rule
+
+# Convenience name for target.
+rosserial_test_rosserial_lib: rosserial/rosserial_test/CMakeFiles/rosserial_test_rosserial_lib.dir/rule
+
+.PHONY : rosserial_test_rosserial_lib
+
+# fast build rule for target.
+rosserial_test_rosserial_lib/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f rosserial/rosserial_test/CMakeFiles/rosserial_test_rosserial_lib.dir/build.make rosserial/rosserial_test/CMakeFiles/rosserial_test_rosserial_lib.dir/build
+.PHONY : rosserial_test_rosserial_lib/fast
+
+# Convenience name for target.
+rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test_rostest_test_rosserial_server_socket.test.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test_rostest_test_rosserial_server_socket.test.dir/rule
+.PHONY : rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test_rostest_test_rosserial_server_socket.test.dir/rule
+
+# Convenience name for target.
+_run_tests_rosserial_test_rostest_test_rosserial_server_socket.test: rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test_rostest_test_rosserial_server_socket.test.dir/rule
+
+.PHONY : _run_tests_rosserial_test_rostest_test_rosserial_server_socket.test
+
+# fast build rule for target.
+_run_tests_rosserial_test_rostest_test_rosserial_server_socket.test/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test_rostest_test_rosserial_server_socket.test.dir/build.make rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test_rostest_test_rosserial_server_socket.test.dir/build
+.PHONY : _run_tests_rosserial_test_rostest_test_rosserial_server_socket.test/fast
+
+# Convenience name for target.
+rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test.dir/rule
+.PHONY : rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test.dir/rule
+
+# Convenience name for target.
+_run_tests_rosserial_test: rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test.dir/rule
+
+.PHONY : _run_tests_rosserial_test
+
+# fast build rule for target.
+_run_tests_rosserial_test/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test.dir/build.make rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test.dir/build
+.PHONY : _run_tests_rosserial_test/fast
+
+# Convenience name for target.
+rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test_rostest.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test_rostest.dir/rule
+.PHONY : rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test_rostest.dir/rule
+
+# Convenience name for target.
+run_tests_rosserial_test_rostest: rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test_rostest.dir/rule
+
+.PHONY : run_tests_rosserial_test_rostest
+
+# fast build rule for target.
+run_tests_rosserial_test_rostest/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test_rostest.dir/build.make rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test_rostest.dir/build
+.PHONY : run_tests_rosserial_test_rostest/fast
+
+# Convenience name for target.
+rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test_rostest.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test_rostest.dir/rule
+.PHONY : rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test_rostest.dir/rule
+
+# Convenience name for target.
+_run_tests_rosserial_test_rostest: rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test_rostest.dir/rule
+
+.PHONY : _run_tests_rosserial_test_rostest
+
+# fast build rule for target.
+_run_tests_rosserial_test_rostest/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test_rostest.dir/build.make rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test_rostest.dir/build
+.PHONY : _run_tests_rosserial_test_rostest/fast
+
+# Convenience name for target.
+rosserial/rosserial_test/CMakeFiles/rosserial_test_publish_subscribe.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rosserial/rosserial_test/CMakeFiles/rosserial_test_publish_subscribe.dir/rule
+.PHONY : rosserial/rosserial_test/CMakeFiles/rosserial_test_publish_subscribe.dir/rule
+
+# Convenience name for target.
+rosserial_test_publish_subscribe: rosserial/rosserial_test/CMakeFiles/rosserial_test_publish_subscribe.dir/rule
+
+.PHONY : rosserial_test_publish_subscribe
+
+# fast build rule for target.
+rosserial_test_publish_subscribe/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f rosserial/rosserial_test/CMakeFiles/rosserial_test_publish_subscribe.dir/build.make rosserial/rosserial_test/CMakeFiles/rosserial_test_publish_subscribe.dir/build
+.PHONY : rosserial_test_publish_subscribe/fast
+
+# Convenience name for target.
+rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test_rostest_test_rosserial_server_socket.test.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test_rostest_test_rosserial_server_socket.test.dir/rule
+.PHONY : rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test_rostest_test_rosserial_server_socket.test.dir/rule
+
+# Convenience name for target.
+run_tests_rosserial_test_rostest_test_rosserial_server_socket.test: rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test_rostest_test_rosserial_server_socket.test.dir/rule
+
+.PHONY : run_tests_rosserial_test_rostest_test_rosserial_server_socket.test
+
+# fast build rule for target.
+run_tests_rosserial_test_rostest_test_rosserial_server_socket.test/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test_rostest_test_rosserial_server_socket.test.dir/build.make rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test_rostest_test_rosserial_server_socket.test.dir/build
+.PHONY : run_tests_rosserial_test_rostest_test_rosserial_server_socket.test/fast
+
+# Convenience name for target.
+rosserial/rosserial_test/CMakeFiles/clean_test_results_rosserial_test.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rosserial/rosserial_test/CMakeFiles/clean_test_results_rosserial_test.dir/rule
+.PHONY : rosserial/rosserial_test/CMakeFiles/clean_test_results_rosserial_test.dir/rule
+
+# Convenience name for target.
+clean_test_results_rosserial_test: rosserial/rosserial_test/CMakeFiles/clean_test_results_rosserial_test.dir/rule
+
+.PHONY : clean_test_results_rosserial_test
+
+# fast build rule for target.
+clean_test_results_rosserial_test/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f rosserial/rosserial_test/CMakeFiles/clean_test_results_rosserial_test.dir/build.make rosserial/rosserial_test/CMakeFiles/clean_test_results_rosserial_test.dir/build
+.PHONY : clean_test_results_rosserial_test/fast
+
+# Convenience name for target.
+rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test_rostest_test_rosserial_python_socket.test.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test_rostest_test_rosserial_python_socket.test.dir/rule
+.PHONY : rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test_rostest_test_rosserial_python_socket.test.dir/rule
+
+# Convenience name for target.
+_run_tests_rosserial_test_rostest_test_rosserial_python_socket.test: rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test_rostest_test_rosserial_python_socket.test.dir/rule
+
+.PHONY : _run_tests_rosserial_test_rostest_test_rosserial_python_socket.test
+
+# fast build rule for target.
+_run_tests_rosserial_test_rostest_test_rosserial_python_socket.test/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test_rostest_test_rosserial_python_socket.test.dir/build.make rosserial/rosserial_test/CMakeFiles/_run_tests_rosserial_test_rostest_test_rosserial_python_socket.test.dir/build
+.PHONY : _run_tests_rosserial_test_rostest_test_rosserial_python_socket.test/fast
+
+# Convenience name for target.
+rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test_rostest_test_rosserial_server_serial.test.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test_rostest_test_rosserial_server_serial.test.dir/rule
+.PHONY : rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test_rostest_test_rosserial_server_serial.test.dir/rule
+
+# Convenience name for target.
+run_tests_rosserial_test_rostest_test_rosserial_server_serial.test: rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test_rostest_test_rosserial_server_serial.test.dir/rule
+
+.PHONY : run_tests_rosserial_test_rostest_test_rosserial_server_serial.test
+
+# fast build rule for target.
+run_tests_rosserial_test_rostest_test_rosserial_server_serial.test/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test_rostest_test_rosserial_server_serial.test.dir/build.make rosserial/rosserial_test/CMakeFiles/run_tests_rosserial_test_rostest_test_rosserial_server_serial.test.dir/build
+.PHONY : run_tests_rosserial_test_rostest_test_rosserial_server_serial.test/fast
+
+src/publish_subscribe.o: src/publish_subscribe.cpp.o
+
+.PHONY : src/publish_subscribe.o
+
+# target to build an object file
+src/publish_subscribe.cpp.o:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f rosserial/rosserial_test/CMakeFiles/rosserial_test_publish_subscribe.dir/build.make rosserial/rosserial_test/CMakeFiles/rosserial_test_publish_subscribe.dir/src/publish_subscribe.cpp.o
+.PHONY : src/publish_subscribe.cpp.o
+
+src/publish_subscribe.i: src/publish_subscribe.cpp.i
+
+.PHONY : src/publish_subscribe.i
+
+# target to preprocess a source file
+src/publish_subscribe.cpp.i:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f rosserial/rosserial_test/CMakeFiles/rosserial_test_publish_subscribe.dir/build.make rosserial/rosserial_test/CMakeFiles/rosserial_test_publish_subscribe.dir/src/publish_subscribe.cpp.i
+.PHONY : src/publish_subscribe.cpp.i
+
+src/publish_subscribe.s: src/publish_subscribe.cpp.s
+
+.PHONY : src/publish_subscribe.s
+
+# target to generate assembly for a file
+src/publish_subscribe.cpp.s:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f rosserial/rosserial_test/CMakeFiles/rosserial_test_publish_subscribe.dir/build.make rosserial/rosserial_test/CMakeFiles/rosserial_test_publish_subscribe.dir/src/publish_subscribe.cpp.s
+.PHONY : src/publish_subscribe.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -161,11 +394,28 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install"
-	@echo "... list_install_components"
-	@echo "... install/strip"
-	@echo "... install/local"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... list_install_components"
+	@echo "... install/strip"
+	@echo "... run_tests_rosserial_test_rostest_test_rosserial_python_socket.test"
+	@echo "... _run_tests_rosserial_test_rostest_test_rosserial_server_serial.test"
+	@echo "... test"
+	@echo "... run_tests_rosserial_test"
+	@echo "... rosserial_test_rosserial_lib"
+	@echo "... _run_tests_rosserial_test_rostest_test_rosserial_server_socket.test"
+	@echo "... install/local"
+	@echo "... _run_tests_rosserial_test"
+	@echo "... run_tests_rosserial_test_rostest"
+	@echo "... _run_tests_rosserial_test_rostest"
+	@echo "... rosserial_test_publish_subscribe"
+	@echo "... run_tests_rosserial_test_rostest_test_rosserial_server_socket.test"
+	@echo "... clean_test_results_rosserial_test"
+	@echo "... _run_tests_rosserial_test_rostest_test_rosserial_python_socket.test"
+	@echo "... run_tests_rosserial_test_rostest_test_rosserial_server_serial.test"
+	@echo "... src/publish_subscribe.o"
+	@echo "... src/publish_subscribe.i"
+	@echo "... src/publish_subscribe.s"
 .PHONY : help
 
 

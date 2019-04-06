@@ -1,0 +1,8 @@
+prefix=/home/junpei/rejireji_ws/install
+
+Name: ddynamic_reconfigure
+Description: Description of ddynamic_reconfigure
+Version: 0.0.6
+Cflags: -I/home/junpei/rejireji_ws/install/include
+Libs: -L/home/junpei/rejireji_ws/install/lib -lddynamic_reconfigure
+Requires: message_runtime std_msgs

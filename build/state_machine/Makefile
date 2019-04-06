@@ -56,6 +56,16 @@ CMAKE_BINARY_DIR = /home/junpei/rejireji_ws/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -67,38 +77,6 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: install/local
-
-.PHONY : install/local/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -121,6 +99,39 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+
+.PHONY : install/strip/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: install/local
+
+.PHONY : install/local/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -154,18 +165,65 @@ depend:
 	cd /home/junpei/rejireji_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+state_machine/CMakeFiles/time.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 state_machine/CMakeFiles/time.dir/rule
+.PHONY : state_machine/CMakeFiles/time.dir/rule
+
+# Convenience name for target.
+time: state_machine/CMakeFiles/time.dir/rule
+
+.PHONY : time
+
+# fast build rule for target.
+time/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f state_machine/CMakeFiles/time.dir/build.make state_machine/CMakeFiles/time.dir/build
+.PHONY : time/fast
+
+src/time.o: src/time.cpp.o
+
+.PHONY : src/time.o
+
+# target to build an object file
+src/time.cpp.o:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f state_machine/CMakeFiles/time.dir/build.make state_machine/CMakeFiles/time.dir/src/time.cpp.o
+.PHONY : src/time.cpp.o
+
+src/time.i: src/time.cpp.i
+
+.PHONY : src/time.i
+
+# target to preprocess a source file
+src/time.cpp.i:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f state_machine/CMakeFiles/time.dir/build.make state_machine/CMakeFiles/time.dir/src/time.cpp.i
+.PHONY : src/time.cpp.i
+
+src/time.s: src/time.cpp.s
+
+.PHONY : src/time.s
+
+# target to generate assembly for a file
+src/time.cpp.s:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f state_machine/CMakeFiles/time.dir/build.make state_machine/CMakeFiles/time.dir/src/time.cpp.s
+.PHONY : src/time.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... install"
 	@echo "... list_install_components"
-	@echo "... install/strip"
-	@echo "... install/local"
+	@echo "... install"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... time"
+	@echo "... test"
+	@echo "... install/strip"
+	@echo "... install/local"
+	@echo "... src/time.o"
+	@echo "... src/time.i"
+	@echo "... src/time.s"
 .PHONY : help
 
 

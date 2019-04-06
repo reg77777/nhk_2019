@@ -1,0 +1,8 @@
+prefix=/home/junpei/rejireji_ws/install
+
+Name: xdot
+Description: Description of xdot
+Version: 2.0.1
+Cflags: 
+Libs: -L/home/junpei/rejireji_ws/install/lib 
+Requires: 

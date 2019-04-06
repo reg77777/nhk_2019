@@ -1,0 +1,8 @@
+prefix=/home/junpei/rejireji_ws/install
+
+Name: rqt_smach
+Description: Description of rqt_smach
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/junpei/rejireji_ws/install/lib 
+Requires: 

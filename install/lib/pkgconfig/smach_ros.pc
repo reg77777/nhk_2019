@@ -1,0 +1,8 @@
+prefix=/home/junpei/rejireji_ws/install
+
+Name: smach_ros
+Description: Description of smach_ros
+Version: 2.0.0
+Cflags: 
+Libs: -L/home/junpei/rejireji_ws/install/lib 
+Requires: rospy rostopic std_msgs std_srvs actionlib actionlib_msgs smach smach_msgs

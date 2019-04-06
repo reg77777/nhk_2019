@@ -1,0 +1,19 @@
+Metadata-Version: 1.0
+Name: xdot
+Version: 2.0.1
+Summary: XDot.py, by Jose Fonseca, is an interactive viewer for graphs written in
+    Graphviz's dot language.
+
+    This package adds front-end capabilities to XDot including WX Widget
+    support and exper...
+Home-page: https://github.com/jrfonseca/xdot.py
+Author: Jonathan Bohren
+Author-email: jbo@jhu.edu
+License: LGPL/BSD
+Description: XDot.py, by Jose Fonseca, is an interactive viewer for graphs written in
+            Graphviz's dot language.
+        
+            This package adds front-end capabilities to XDot including WX Widget
+            support and experimental Qt support and a mechanism for receiving callbacks
+            when nodes are clicked.  This extension is provided as BSD.
+Platform: UNKNOWN

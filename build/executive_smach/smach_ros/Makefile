@@ -56,6 +56,16 @@ CMAKE_BINARY_DIR = /home/junpei/rejireji_ws/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -68,15 +78,16 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
 
-.PHONY : list_install_components/fast
+.PHONY : rebuild_cache/fast
 
 # Special rule for the target install/strip
 install/strip: preinstall
@@ -89,6 +100,17 @@ install/strip/fast: install/strip
 
 .PHONY : install/strip/fast
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -99,17 +121,6 @@ install/local: preinstall
 install/local/fast: install/local
 
 .PHONY : install/local/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -154,17 +165,290 @@ depend:
 	cd /home/junpei/rejireji_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_sequence.test.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_sequence.test.dir/rule
+.PHONY : executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_sequence.test.dir/rule
+
+# Convenience name for target.
+run_tests_smach_ros_rostest_test_sequence.test: executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_sequence.test.dir/rule
+
+.PHONY : run_tests_smach_ros_rostest_test_sequence.test
+
+# fast build rule for target.
+run_tests_smach_ros_rostest_test_sequence.test/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_sequence.test.dir/build.make executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_sequence.test.dir/build
+.PHONY : run_tests_smach_ros_rostest_test_sequence.test/fast
+
+# Convenience name for target.
+executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros.dir/rule
+.PHONY : executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros.dir/rule
+
+# Convenience name for target.
+run_tests_smach_ros: executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros.dir/rule
+
+.PHONY : run_tests_smach_ros
+
+# fast build rule for target.
+run_tests_smach_ros/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros.dir/build.make executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros.dir/build
+.PHONY : run_tests_smach_ros/fast
+
+# Convenience name for target.
+executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_introspection.test.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_introspection.test.dir/rule
+.PHONY : executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_introspection.test.dir/rule
+
+# Convenience name for target.
+run_tests_smach_ros_rostest_test_introspection.test: executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_introspection.test.dir/rule
+
+.PHONY : run_tests_smach_ros_rostest_test_introspection.test
+
+# fast build rule for target.
+run_tests_smach_ros_rostest_test_introspection.test/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_introspection.test.dir/build.make executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_introspection.test.dir/build
+.PHONY : run_tests_smach_ros_rostest_test_introspection.test/fast
+
+# Convenience name for target.
+executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_introspection.test.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_introspection.test.dir/rule
+.PHONY : executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_introspection.test.dir/rule
+
+# Convenience name for target.
+_run_tests_smach_ros_rostest_test_introspection.test: executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_introspection.test.dir/rule
+
+.PHONY : _run_tests_smach_ros_rostest_test_introspection.test
+
+# fast build rule for target.
+_run_tests_smach_ros_rostest_test_introspection.test/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_introspection.test.dir/build.make executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_introspection.test.dir/build
+.PHONY : _run_tests_smach_ros_rostest_test_introspection.test/fast
+
+# Convenience name for target.
+executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_smach_actionlib.test.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_smach_actionlib.test.dir/rule
+.PHONY : executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_smach_actionlib.test.dir/rule
+
+# Convenience name for target.
+run_tests_smach_ros_rostest_test_smach_actionlib.test: executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_smach_actionlib.test.dir/rule
+
+.PHONY : run_tests_smach_ros_rostest_test_smach_actionlib.test
+
+# fast build rule for target.
+run_tests_smach_ros_rostest_test_smach_actionlib.test/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_smach_actionlib.test.dir/build.make executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_smach_actionlib.test.dir/build
+.PHONY : run_tests_smach_ros_rostest_test_smach_actionlib.test/fast
+
+# Convenience name for target.
+executive_smach/smach_ros/CMakeFiles/clean_test_results_smach_ros.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 executive_smach/smach_ros/CMakeFiles/clean_test_results_smach_ros.dir/rule
+.PHONY : executive_smach/smach_ros/CMakeFiles/clean_test_results_smach_ros.dir/rule
+
+# Convenience name for target.
+clean_test_results_smach_ros: executive_smach/smach_ros/CMakeFiles/clean_test_results_smach_ros.dir/rule
+
+.PHONY : clean_test_results_smach_ros
+
+# fast build rule for target.
+clean_test_results_smach_ros/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f executive_smach/smach_ros/CMakeFiles/clean_test_results_smach_ros.dir/build.make executive_smach/smach_ros/CMakeFiles/clean_test_results_smach_ros.dir/build
+.PHONY : clean_test_results_smach_ros/fast
+
+# Convenience name for target.
+executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_monitor.test.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_monitor.test.dir/rule
+.PHONY : executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_monitor.test.dir/rule
+
+# Convenience name for target.
+run_tests_smach_ros_rostest_test_monitor.test: executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_monitor.test.dir/rule
+
+.PHONY : run_tests_smach_ros_rostest_test_monitor.test
+
+# fast build rule for target.
+run_tests_smach_ros_rostest_test_monitor.test/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_monitor.test.dir/build.make executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_monitor.test.dir/build
+.PHONY : run_tests_smach_ros_rostest_test_monitor.test/fast
+
+# Convenience name for target.
+executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_state_machine.test.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_state_machine.test.dir/rule
+.PHONY : executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_state_machine.test.dir/rule
+
+# Convenience name for target.
+run_tests_smach_ros_rostest_test_state_machine.test: executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_state_machine.test.dir/rule
+
+.PHONY : run_tests_smach_ros_rostest_test_state_machine.test
+
+# fast build rule for target.
+run_tests_smach_ros_rostest_test_state_machine.test/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_state_machine.test.dir/build.make executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_state_machine.test.dir/build
+.PHONY : run_tests_smach_ros_rostest_test_state_machine.test/fast
+
+# Convenience name for target.
+executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_sequence.test.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_sequence.test.dir/rule
+.PHONY : executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_sequence.test.dir/rule
+
+# Convenience name for target.
+_run_tests_smach_ros_rostest_test_sequence.test: executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_sequence.test.dir/rule
+
+.PHONY : _run_tests_smach_ros_rostest_test_sequence.test
+
+# fast build rule for target.
+_run_tests_smach_ros_rostest_test_sequence.test/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_sequence.test.dir/build.make executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_sequence.test.dir/build
+.PHONY : _run_tests_smach_ros_rostest_test_sequence.test/fast
+
+# Convenience name for target.
+executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_state_machine.test.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_state_machine.test.dir/rule
+.PHONY : executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_state_machine.test.dir/rule
+
+# Convenience name for target.
+_run_tests_smach_ros_rostest_test_state_machine.test: executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_state_machine.test.dir/rule
+
+.PHONY : _run_tests_smach_ros_rostest_test_state_machine.test
+
+# fast build rule for target.
+_run_tests_smach_ros_rostest_test_state_machine.test/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_state_machine.test.dir/build.make executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_state_machine.test.dir/build
+.PHONY : _run_tests_smach_ros_rostest_test_state_machine.test/fast
+
+# Convenience name for target.
+executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest.dir/rule
+.PHONY : executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest.dir/rule
+
+# Convenience name for target.
+run_tests_smach_ros_rostest: executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest.dir/rule
+
+.PHONY : run_tests_smach_ros_rostest
+
+# fast build rule for target.
+run_tests_smach_ros_rostest/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest.dir/build.make executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest.dir/build
+.PHONY : run_tests_smach_ros_rostest/fast
+
+# Convenience name for target.
+executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_monitor.test.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_monitor.test.dir/rule
+.PHONY : executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_monitor.test.dir/rule
+
+# Convenience name for target.
+_run_tests_smach_ros_rostest_test_monitor.test: executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_monitor.test.dir/rule
+
+.PHONY : _run_tests_smach_ros_rostest_test_monitor.test
+
+# fast build rule for target.
+_run_tests_smach_ros_rostest_test_monitor.test/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_monitor.test.dir/build.make executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_monitor.test.dir/build
+.PHONY : _run_tests_smach_ros_rostest_test_monitor.test/fast
+
+# Convenience name for target.
+executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_concurrence.test.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_concurrence.test.dir/rule
+.PHONY : executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_concurrence.test.dir/rule
+
+# Convenience name for target.
+run_tests_smach_ros_rostest_test_concurrence.test: executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_concurrence.test.dir/rule
+
+.PHONY : run_tests_smach_ros_rostest_test_concurrence.test
+
+# fast build rule for target.
+run_tests_smach_ros_rostest_test_concurrence.test/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_concurrence.test.dir/build.make executive_smach/smach_ros/CMakeFiles/run_tests_smach_ros_rostest_test_concurrence.test.dir/build
+.PHONY : run_tests_smach_ros_rostest_test_concurrence.test/fast
+
+# Convenience name for target.
+executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros.dir/rule
+.PHONY : executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros.dir/rule
+
+# Convenience name for target.
+_run_tests_smach_ros: executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros.dir/rule
+
+.PHONY : _run_tests_smach_ros
+
+# fast build rule for target.
+_run_tests_smach_ros/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros.dir/build.make executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros.dir/build
+.PHONY : _run_tests_smach_ros/fast
+
+# Convenience name for target.
+executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest.dir/rule
+.PHONY : executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest.dir/rule
+
+# Convenience name for target.
+_run_tests_smach_ros_rostest: executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest.dir/rule
+
+.PHONY : _run_tests_smach_ros_rostest
+
+# fast build rule for target.
+_run_tests_smach_ros_rostest/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest.dir/build.make executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest.dir/build
+.PHONY : _run_tests_smach_ros_rostest/fast
+
+# Convenience name for target.
+executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_concurrence.test.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_concurrence.test.dir/rule
+.PHONY : executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_concurrence.test.dir/rule
+
+# Convenience name for target.
+_run_tests_smach_ros_rostest_test_concurrence.test: executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_concurrence.test.dir/rule
+
+.PHONY : _run_tests_smach_ros_rostest_test_concurrence.test
+
+# fast build rule for target.
+_run_tests_smach_ros_rostest_test_concurrence.test/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_concurrence.test.dir/build.make executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_concurrence.test.dir/build
+.PHONY : _run_tests_smach_ros_rostest_test_concurrence.test/fast
+
+# Convenience name for target.
+executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_smach_actionlib.test.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_smach_actionlib.test.dir/rule
+.PHONY : executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_smach_actionlib.test.dir/rule
+
+# Convenience name for target.
+_run_tests_smach_ros_rostest_test_smach_actionlib.test: executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_smach_actionlib.test.dir/rule
+
+.PHONY : _run_tests_smach_ros_rostest_test_smach_actionlib.test
+
+# fast build rule for target.
+_run_tests_smach_ros_rostest_test_smach_actionlib.test/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_smach_actionlib.test.dir/build.make executive_smach/smach_ros/CMakeFiles/_run_tests_smach_ros_rostest_test_smach_actionlib.test.dir/build
+.PHONY : _run_tests_smach_ros_rostest_test_smach_actionlib.test/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... install"
 	@echo "... list_install_components"
-	@echo "... install/strip"
-	@echo "... install/local"
+	@echo "... install"
+	@echo "... run_tests_smach_ros_rostest_test_sequence.test"
+	@echo "... run_tests_smach_ros"
+	@echo "... run_tests_smach_ros_rostest_test_introspection.test"
+	@echo "... _run_tests_smach_ros_rostest_test_introspection.test"
+	@echo "... run_tests_smach_ros_rostest_test_smach_actionlib.test"
+	@echo "... clean_test_results_smach_ros"
+	@echo "... run_tests_smach_ros_rostest_test_monitor.test"
+	@echo "... run_tests_smach_ros_rostest_test_state_machine.test"
+	@echo "... _run_tests_smach_ros_rostest_test_sequence.test"
 	@echo "... rebuild_cache"
+	@echo "... install/strip"
+	@echo "... _run_tests_smach_ros_rostest_test_state_machine.test"
+	@echo "... test"
+	@echo "... run_tests_smach_ros_rostest"
+	@echo "... _run_tests_smach_ros_rostest_test_monitor.test"
+	@echo "... run_tests_smach_ros_rostest_test_concurrence.test"
+	@echo "... _run_tests_smach_ros"
+	@echo "... _run_tests_smach_ros_rostest"
+	@echo "... _run_tests_smach_ros_rostest_test_concurrence.test"
+	@echo "... _run_tests_smach_ros_rostest_test_smach_actionlib.test"
+	@echo "... install/local"
 	@echo "... edit_cache"
 .PHONY : help
 

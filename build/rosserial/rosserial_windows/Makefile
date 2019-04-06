@@ -56,16 +56,15 @@ CMAKE_BINARY_DIR = /home/junpei/rejireji_ws/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
 
-# Special rule for the target install/local
-install/local/fast: install/local
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
 
-.PHONY : install/local/fast
+.PHONY : list_install_components/fast
 
 # Special rule for the target install/strip
 install/strip: preinstall
@@ -78,15 +77,16 @@ install/strip/fast: install/strip
 
 .PHONY : install/strip/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
+# Special rule for the target install/local
+install/local/fast: install/local
 
-.PHONY : list_install_components/fast
+.PHONY : install/local/fast
 
 # Special rule for the target install
 install: preinstall
@@ -110,6 +110,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -200,21 +211,6 @@ nav_msgs_generate_messages_eus/fast:
 .PHONY : nav_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
-rosserial/rosserial_windows/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule:
-	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rosserial/rosserial_windows/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
-.PHONY : rosserial/rosserial_windows/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-nav_msgs_generate_messages_cpp: rosserial/rosserial_windows/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : nav_msgs_generate_messages_cpp
-
-# fast build rule for target.
-nav_msgs_generate_messages_cpp/fast:
-	cd /home/junpei/rejireji_ws/build && $(MAKE) -f rosserial/rosserial_windows/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build.make rosserial/rosserial_windows/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build
-.PHONY : nav_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
 rosserial/rosserial_windows/CMakeFiles/nav_msgs_generate_messages_py.dir/rule:
 	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rosserial/rosserial_windows/CMakeFiles/nav_msgs_generate_messages_py.dir/rule
 .PHONY : rosserial/rosserial_windows/CMakeFiles/nav_msgs_generate_messages_py.dir/rule
@@ -229,6 +225,21 @@ nav_msgs_generate_messages_py/fast:
 	cd /home/junpei/rejireji_ws/build && $(MAKE) -f rosserial/rosserial_windows/CMakeFiles/nav_msgs_generate_messages_py.dir/build.make rosserial/rosserial_windows/CMakeFiles/nav_msgs_generate_messages_py.dir/build
 .PHONY : nav_msgs_generate_messages_py/fast
 
+# Convenience name for target.
+rosserial/rosserial_windows/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rosserial/rosserial_windows/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
+.PHONY : rosserial/rosserial_windows/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+nav_msgs_generate_messages_cpp: rosserial/rosserial_windows/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : nav_msgs_generate_messages_cpp
+
+# fast build rule for target.
+nav_msgs_generate_messages_cpp/fast:
+	cd /home/junpei/rejireji_ws/build && $(MAKE) -f rosserial/rosserial_windows/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build.make rosserial/rosserial_windows/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build
+.PHONY : nav_msgs_generate_messages_cpp/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -236,15 +247,16 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... nav_msgs_generate_messages_lisp"
+	@echo "... list_install_components"
+	@echo "... install/strip"
 	@echo "... install/local"
 	@echo "... nav_msgs_generate_messages_nodejs"
-	@echo "... install/strip"
-	@echo "... list_install_components"
 	@echo "... nav_msgs_generate_messages_eus"
-	@echo "... nav_msgs_generate_messages_cpp"
 	@echo "... install"
 	@echo "... nav_msgs_generate_messages_py"
 	@echo "... edit_cache"
+	@echo "... nav_msgs_generate_messages_cpp"
+	@echo "... test"
 	@echo "... rebuild_cache"
 .PHONY : help
 

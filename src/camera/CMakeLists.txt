@@ -10,9 +10,12 @@ project(camera)
 find_package(OpenCV REQUIRED)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
+  geometry_msgs
+  sensor_msgs
   std_msgs
   cv_bridge
   image_transport
+  #dynamic_reconfigure
 )
 
 ## System dependencies are found with CMake's conventions
@@ -200,11 +203,19 @@ include_directories(
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
+
 include_directories(include ${catkin_INCLUDE_DIRS})
 
 #add_executable(usbcam src/usbcam.cpp)
 #target_link_libraries(usbcam ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 
+#generate_dynamic_reconfigure_options(
+#  cfg/HSV.cfg
+#)
+
 add_executable(connect src/connect.cpp)
 target_link_libraries(connect ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 
+add_executable(deep src/deep.cpp)
+#add_dependencies(deep HSV_gencfg)
+target_link_libraries(deep ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})

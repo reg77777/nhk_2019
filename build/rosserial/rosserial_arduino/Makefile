@@ -122,6 +122,17 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # The main all target
 all: cmake_check_build_system
 	cd /home/junpei/rejireji_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/junpei/rejireji_ws/build/CMakeFiles /home/junpei/rejireji_ws/build/rosserial/rosserial_arduino/CMakeFiles/progress.marks
@@ -367,6 +378,7 @@ help:
 	@echo "... _rosserial_arduino_generate_messages_check_deps_Adc"
 	@echo "... install"
 	@echo "... rosserial_arduino_gencpp"
+	@echo "... test"
 	@echo "... rosserial_arduino_generate_messages_eus"
 	@echo "... rosserial_arduino_generate_messages_cpp"
 	@echo "... rosserial_arduino_generate_messages"

@@ -61,6 +61,7 @@ robot/CMakeFiles/dog.dir/src/dog.cpp.o: /opt/ros/kinetic/include/rosconsole/macr
 robot/CMakeFiles/dog.dir/src/dog.cpp.o: /opt/ros/kinetic/include/std_msgs/Bool.h
 robot/CMakeFiles/dog.dir/src/dog.cpp.o: /opt/ros/kinetic/include/std_msgs/Float32.h
 robot/CMakeFiles/dog.dir/src/dog.cpp.o: /opt/ros/kinetic/include/std_msgs/Int16.h
+robot/CMakeFiles/dog.dir/src/dog.cpp.o: /opt/ros/kinetic/include/std_msgs/Int32.h
 robot/CMakeFiles/dog.dir/src/dog.cpp.o: /opt/ros/kinetic/include/xmlrpcpp/XmlRpcDecl.h
 robot/CMakeFiles/dog.dir/src/dog.cpp.o: /opt/ros/kinetic/include/xmlrpcpp/XmlRpcValue.h
 

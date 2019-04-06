@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="state_machine" type="practice1.py" name="practice1"/>
+  <node pkg="state_machine" type="practice2.py" name="practice2"/>
+</launch>
