@@ -1,22 +1,5 @@
-# nhk_2019
+# 概要
+このリポジトリは四足歩行ロボットを制作した際に書いたコードを置いています
 
-## src/camera                        
-カメラ関係  
-むずかしいわからない
-## src/executive_smach_visualization  
-## src/executive_smach                
-## src/xdot                          
-smachの外部ファイル  
-## src/realsense2_camera             
-realsense2の外部ファイル  
-## src/state_machine  
-smachを使った状態遷移    
-## src/robot          
-ロボットを動かすコード  
-dog.cpp  四足歩行  
-omni.cpp オムニ  
-ps3.cpp  ps3コントローラ  
-## src/tf                            tfのコード  
-クォータニオンがわからない
-## src/sim                           rviz等のシミュレーション  
-ぜんぜんできてない
+![](https://github.com/reg77777/nhk_2019/assets/29976655/c3aaa9f8-3c7e-419f-8e02-be111a562183)
+*動いている様子（二倍速）*
